@@ -16,16 +16,15 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(""); // Clear any previous error
-  
+
     try {
-      const userData = await login(formData.email, formData.password); // Call login function from AuthContext
-      localStorage.setItem("token", userData.token); // Save token
-      navigate("/profile"); // Redirect to profile
+      const userData = await login(formData.email, formData.password);
+      localStorage.setItem("token", userData.token); // Save token in localStorage
+      navigate("/profile"); // Redirect to profile after login
     } catch (error) {
-      setError(error.response?.data?.message || "Invalid email or password!");
+      setError(error.response?.data?.msg || "Invalid email or password!");
     }
   };
-  
 
   return (
     <div
