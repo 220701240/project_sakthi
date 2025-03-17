@@ -3,7 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const AddRecipe = () => {
-  const { user, token } = useAuth(); // Ensure token is available
+  const { user, token } = useAuth(); // Ensure user & token are available
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
@@ -60,11 +60,9 @@ const AddRecipe = () => {
   };
 
   return (
-    <div
-      className="container-fluid d-flex justify-content-center align-items-center"
+    <div className="container-fluid d-flex justify-content-center align-items-center"
       style={{
-        backgroundImage:
-          "url('https://images.pexels.com/photos/4108723/pexels-photo-4108723.jpeg')",
+        backgroundImage: "url('https://images.pexels.com/photos/4108723/pexels-photo-4108723.jpeg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         minHeight: "100vh",
@@ -72,85 +70,38 @@ const AddRecipe = () => {
       }}
     >
       <div className="container mt-4">
-        <h2
-          style={{ textAlign: "center", color: "black", fontStyle: "italic" }}
-        >
-          Add Recipe
-        </h2>
+        <h2 style={{ textAlign: "center", color: "black", fontStyle: "italic" }}>Add Recipe</h2>
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            className="form-control mb-2"
-            placeholder="Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-          <textarea
-            className="form-control mb-2"
-            placeholder="Ingredients (comma-separated)"
-            value={ingredients}
-            onChange={(e) => setIngredients(e.target.value)}
-            required
-          />
-          <textarea
-            className="form-control mb-2"
-            placeholder="Instructions"
-            value={instructions}
-            onChange={(e) => setInstructions(e.target.value)}
-            required
-          />
-          <input
-            type="text"
-            className="form-control mb-2"
-            placeholder="Image URL"
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
-          />
+          <input type="text" className="form-control mb-2" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
+          <textarea className="form-control mb-2" placeholder="Ingredients (comma-separated)" value={ingredients} onChange={(e) => setIngredients(e.target.value)} required />
+          <textarea className="form-control mb-2" placeholder="Instructions" value={instructions} onChange={(e) => setInstructions(e.target.value)} required />
+          <input type="text" className="form-control mb-2" placeholder="Image URL" value={image} onChange={(e) => setImage(e.target.value)} />
 
-          <select
-            className="form-control mb-2"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
+          <select className="form-control mb-2" value={category} onChange={(e) => setCategory(e.target.value)}>
             <option value="main course">Main Course</option>
             <option value="dessert">Dessert</option>
             <option value="appetizer">Appetizer</option>
           </select>
 
-          <select
-            className="form-control mb-2"
-            value={difficulty}
-            onChange={(e) => setDifficulty(e.target.value)}
-          >
+          <select className="form-control mb-2" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
           </select>
 
-          <select
-            className="form-control mb-2"
-            value={mealType}
-            onChange={(e) => setMealType(e.target.value)}
-          >
+          <select className="form-control mb-2" value={mealType} onChange={(e) => setMealType(e.target.value)}>
             <option value="vegan">Vegan</option>
             <option value="vegetarian">Vegetarian</option>
             <option value="non-vegetarian">Non-Vegetarian</option>
           </select>
 
-          <select
-            className="form-control mb-2"
-            value={timeRequired}
-            onChange={(e) => setTimeRequired(e.target.value)}
-          >
+          <select className="form-control mb-2" value={timeRequired} onChange={(e) => setTimeRequired(e.target.value)}>
             <option value="less than 15 mins">Less than 15 mins</option>
             <option value="15-30 mins">15-30 mins</option>
             <option value="above 30 mins">Above 30 mins</option>
           </select>
 
-          <button type="submit" className="btn btn-primary w-100">
-            Add Recipe
-          </button>
+          <button type="submit" className="btn btn-primary w-100">Add Recipe</button>
         </form>
       </div>
     </div>
